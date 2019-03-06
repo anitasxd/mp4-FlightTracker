@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9F4CF6B3222A7BB700B8E242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CF6B2222A7BB700B8E242 /* AppDelegate.swift */; };
-		9F4CF6B5222A7BB700B8E242 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CF6B4222A7BB700B8E242 /* ViewController.swift */; };
+		9F4CF6B5222A7BB700B8E242 /* FlightSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CF6B4222A7BB700B8E242 /* FlightSearchViewController.swift */; };
 		9F4CF6B8222A7BB700B8E242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F4CF6B6222A7BB700B8E242 /* Main.storyboard */; };
 		9F4CF6BA222A7BB800B8E242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F4CF6B9222A7BB800B8E242 /* Assets.xcassets */; };
 		9F4CF6BD222A7BB800B8E242 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F4CF6BB222A7BB800B8E242 /* LaunchScreen.storyboard */; };
 		9F4CF6C5222A7BF000B8E242 /* LufthansaAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CF6C4222A7BF000B8E242 /* LufthansaAPIClient.swift */; };
 		9F4CF6C7222A7C4300B8E242 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CF6C6222A7C4300B8E242 /* Flight.swift */; };
+		C065E8E8222F48A1007994A3 /* FlightSearch-UISetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065E8E7222F48A1007994A3 /* FlightSearch-UISetupViewController.swift */; };
+		C065E8EA222F54E9007994A3 /* FlightInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065E8E9222F54E9007994A3 /* FlightInfoViewController.swift */; };
+		C065E8EC222F623D007994A3 /* FlightInfoViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065E8EB222F623D007994A3 /* FlightInfoViewController-UISetup.swift */; };
 		D86AF6286DAE2A43957DE55D /* Pods_LufthansaMP4Skeleton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AFFB8948EBF9ED8E7EB31F /* Pods_LufthansaMP4Skeleton.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +24,7 @@
 		79028E61641FF1291513E099 /* Pods-LufthansaMP4Skeleton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LufthansaMP4Skeleton.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LufthansaMP4Skeleton/Pods-LufthansaMP4Skeleton.debug.xcconfig"; sourceTree = "<group>"; };
 		9F4CF6AF222A7BB700B8E242 /* LufthansaMP4Skeleton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LufthansaMP4Skeleton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F4CF6B2222A7BB700B8E242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9F4CF6B4222A7BB700B8E242 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9F4CF6B4222A7BB700B8E242 /* FlightSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchViewController.swift; sourceTree = "<group>"; };
 		9F4CF6B7222A7BB700B8E242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9F4CF6B9222A7BB800B8E242 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F4CF6BC222A7BB800B8E242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -29,6 +32,9 @@
 		9F4CF6C4222A7BF000B8E242 /* LufthansaAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LufthansaAPIClient.swift; sourceTree = "<group>"; };
 		9F4CF6C6222A7C4300B8E242 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		A9AFFB8948EBF9ED8E7EB31F /* Pods_LufthansaMP4Skeleton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LufthansaMP4Skeleton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C065E8E7222F48A1007994A3 /* FlightSearch-UISetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlightSearch-UISetupViewController.swift"; sourceTree = "<group>"; };
+		C065E8E9222F54E9007994A3 /* FlightInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoViewController.swift; sourceTree = "<group>"; };
+		C065E8EB222F623D007994A3 /* FlightInfoViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlightInfoViewController-UISetup.swift"; sourceTree = "<group>"; };
 		C30473CE715F38F9377BE1F1 /* Pods-LufthansaMP4Skeleton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LufthansaMP4Skeleton.release.xcconfig"; path = "Pods/Target Support Files/Pods-LufthansaMP4Skeleton/Pods-LufthansaMP4Skeleton.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,15 +80,90 @@
 			isa = PBXGroup;
 			children = (
 				9F4CF6B2222A7BB700B8E242 /* AppDelegate.swift */,
-				9F4CF6B4222A7BB700B8E242 /* ViewController.swift */,
 				9F4CF6C6222A7C4300B8E242 /* Flight.swift */,
 				9F4CF6C4222A7BF000B8E242 /* LufthansaAPIClient.swift */,
 				9F4CF6B6222A7BB700B8E242 /* Main.storyboard */,
 				9F4CF6B9222A7BB800B8E242 /* Assets.xcassets */,
 				9F4CF6BB222A7BB800B8E242 /* LaunchScreen.storyboard */,
 				9F4CF6BE222A7BB800B8E242 /* Info.plist */,
+				C065E8DC222F36C6007994A3 /* ViewControllers */,
 			);
 			path = LufthansaMP4Skeleton;
+			sourceTree = "<group>";
+		};
+		C065E8DC222F36C6007994A3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C065E8DD222F3701007994A3 /* Flights-Tab */,
+				C065E8E2222F3764007994A3 /* Airports-Tab */,
+				C065E8E3222F3797007994A3 /* Favorites-Tab */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C065E8DD222F3701007994A3 /* Flights-Tab */ = {
+			isa = PBXGroup;
+			children = (
+				C065E8E6222F37D9007994A3 /* FlightsSearchVC */,
+				C065E8DE222F3712007994A3 /* FlightInfoVC */,
+			);
+			path = "Flights-Tab";
+			sourceTree = "<group>";
+		};
+		C065E8DE222F3712007994A3 /* FlightInfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				C065E8E9222F54E9007994A3 /* FlightInfoViewController.swift */,
+				C065E8EB222F623D007994A3 /* FlightInfoViewController-UISetup.swift */,
+			);
+			path = FlightInfoVC;
+			sourceTree = "<group>";
+		};
+		C065E8E0222F3722007994A3 /* AirportsInfoVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AirportsInfoVC;
+			sourceTree = "<group>";
+		};
+		C065E8E1222F3759007994A3 /* MapVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapVC;
+			sourceTree = "<group>";
+		};
+		C065E8E2222F3764007994A3 /* Airports-Tab */ = {
+			isa = PBXGroup;
+			children = (
+				C065E8E0222F3722007994A3 /* AirportsInfoVC */,
+				C065E8E1222F3759007994A3 /* MapVC */,
+			);
+			path = "Airports-Tab";
+			sourceTree = "<group>";
+		};
+		C065E8E3222F3797007994A3 /* Favorites-Tab */ = {
+			isa = PBXGroup;
+			children = (
+				C065E8E4222F37B1007994A3 /* FavoritesVC */,
+			);
+			path = "Favorites-Tab";
+			sourceTree = "<group>";
+		};
+		C065E8E4222F37B1007994A3 /* FavoritesVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FavoritesVC;
+			sourceTree = "<group>";
+		};
+		C065E8E6222F37D9007994A3 /* FlightsSearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				9F4CF6B4222A7BB700B8E242 /* FlightSearchViewController.swift */,
+				C065E8E7222F48A1007994A3 /* FlightSearch-UISetupViewController.swift */,
+			);
+			path = FlightsSearchVC;
 			sourceTree = "<group>";
 		};
 		EF5E17C75C08D4C42199DC49 /* Pods */ = {
@@ -216,9 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C065E8EA222F54E9007994A3 /* FlightInfoViewController.swift in Sources */,
 				9F4CF6C5222A7BF000B8E242 /* LufthansaAPIClient.swift in Sources */,
 				9F4CF6C7222A7C4300B8E242 /* Flight.swift in Sources */,
-				9F4CF6B5222A7BB700B8E242 /* ViewController.swift in Sources */,
+				C065E8EC222F623D007994A3 /* FlightInfoViewController-UISetup.swift in Sources */,
+				C065E8E8222F48A1007994A3 /* FlightSearch-UISetupViewController.swift in Sources */,
+				9F4CF6B5222A7BB700B8E242 /* FlightSearchViewController.swift in Sources */,
 				9F4CF6B3222A7BB700B8E242 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
