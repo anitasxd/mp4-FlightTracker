@@ -41,6 +41,9 @@ class Flight {
         destinationAirport = data["FlightStatusResource"]["Flights"]["Flight"]["Arrival"]["AirportCode"].stringValue
         boardingGate = data["FlightStatusResource"]["Flights"]["Flight"]["Arrival"]["Terminal"]["Gate"].stringValue
         
+        //aircrafType
+        aircraftType = data["FlightStatusResource"]["Flights"]["Flight"]["Equipment"]["AircraftCode"].stringValue
+        
     
         
         

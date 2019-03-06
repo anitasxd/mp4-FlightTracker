@@ -9,7 +9,10 @@
 import UIKit
 
 extension FlightSearchViewController{
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     func flightSearchUISetup(){
         view.backgroundColor = UIColor(red: 80 / 255, green: 101 / 255, blue: 161 / 255, alpha: 1)
         flightNumberTextfield = UITextField(frame: CGRect(x: view.frame.width/3, y: view.frame.height/2, width: view.frame.width/2, height: 35))
@@ -39,7 +42,7 @@ extension FlightSearchViewController{
     @objc func searchbuttonPress(_ sender: Any) {
         let inputDate = dateFormatter(flightDatePicker.date)
         LufthansaAPIClient.getAuthToken() {
-            LufthansaAPIClient.getFlightStatus(flightNum: "\(self.flightNumberTextfield!.text!)", date: "\(inputDate)") { (flightRecord) in
+            LufthansaAPIClient.getFlightInfo(flightNum: "\(self.flightNumberTextfield!.text!)", date: "\(inputDate)") { (flightRecord) in
                 self.label.text = flightRecord.timeStatus
                 self.inputFlight = flightRecord
                 self.performSegue(withIdentifier: "toFlightInfo", sender: self)

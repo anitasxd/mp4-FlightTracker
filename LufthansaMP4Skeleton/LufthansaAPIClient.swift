@@ -34,12 +34,11 @@ class LufthansaAPIClient {
     }
     
     //This function will get the status for a flight. FlightNum format "LHXXX" Date format "YYYY-MM-DD"
-    static func getFlightStatus(flightNum: String, date: String, completion: @escaping (Flight) -> ()){
+    static func getFlightInfo(flightNum: String, date: String, completion: @escaping (Flight) -> ()){
         
         //Request URL and authentication parameters
-        let requestURL = "https://api.lufthansa.com/v1/operations/flightstatus/\(flightNum)/\(date)" //FIXME
-        let parameters: HTTPHeaders = ["Accept":"application/json", "Authorization":"Bearer \(self.authToken!)"] //FIXME
-
+        let requestURL = "https://api.lufthansa.com/v1/operations/flightstatus/\(flightNum)/\(date)"
+        let parameters: HTTPHeaders = ["Accept":"application/json", "Authorization":"Bearer \(self.authToken!)"]
         Alamofire.request(requestURL, headers: parameters).responseJSON { response in
          //Makes sure that response is valid
          guard response.result.isSuccess else {
@@ -55,4 +54,67 @@ class LufthansaAPIClient {
          }
 
     }
+    
+    static func getAirportInfo(code: String, completion: @escaping (Airport) -> ()){
+        //Request URL and authentication parameters
+        let requestURL = "https://api.lufthansa.com/v1/references/airports/\(code)?limit=20&offset=0&LHoperated=0"
+        let parameters: HTTPHeaders = ["Authorization": "Bearer \(authToken!)", "Accept": "application/json"]
+
+        Alamofire.request(requestURL, headers: parameters).responseJSON { response in
+            //Makes sure thhat response is valid
+            guard response.result.isSuccess else {
+                print(response.result.error.debugDescription)
+                return
+            }
+            //Creates JSON object
+            let json = JSON(response.result.value)
+            print(json)
+            //Create new flight model and populate data
+            let airport = Airport(data: json, code: code)
+            completion(airport)
+        }
+    }
+    
+    static func getAirportCraft(code: String, completion: @escaping (Aircraft) -> ()){
+        //Request URL and authentication parameters
+        let requestURL = "https://api.lufthansa.com/v1/references/aircraft/\(code)?limit=20&offset=0"
+        let parameters: HTTPHeaders = ["Authorization": "Bearer \(authToken!)", "Accept": "application/json"]
+        
+        Alamofire.request(requestURL, headers: parameters).responseJSON { response in
+            //Makes sure thhat response is valid
+            guard response.result.isSuccess else {
+                print(response.result.error.debugDescription)
+                return
+            }
+            //Creates JSON object
+            let json = JSON(response.result.value)
+            //Create new flight model and populate data
+            let aircraft = Aircraft(data: json, code: code)
+            completion(aircraft)
+        }
+    }
+    
+    static func getAllAirports(UIview : UIViewController, completion: @escaping ([Airport]) -> ()){
+        //Request URL and authentication parameters
+        let requestURL = "https://api.lufthansa.com/v1/references/airports/?limit=20&offset=0&LHoperated=0"
+        let parameters: HTTPHeaders = ["Authorization": "Bearer \(authToken!)", "Accept": "application/json"]
+  
+        Alamofire.request(requestURL, headers: parameters).responseJSON { response in
+            //Makes sure that response is valid
+            guard response.result.isSuccess else {
+                print(response.result.error.debugDescription)
+                return
+            }
+            //Creates JSON object
+            let json = JSON(response.result.value)
+            //Create new flight model and populate data
+            var airports : [Airport] = []
+            for i in 0...100 {
+                let airportCode = json["AirportResource"]["Airports"]["Airport"][i]["AirportCode"].stringValue
+                airports.append(Airport(data: json, code: airportCode))
+            }
+            completion(airports)
+        }
+    }
+    
 }
