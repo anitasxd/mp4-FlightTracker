@@ -5,6 +5,7 @@ Flight Tracker is an app that retrieves flight information from the Lufthansa ai
 
 ## Screenshots
 
-![Start Page](https://github.com/anitasxd/MDB2019/blob/master/home.png)
-![Game Page](https://github.com/anitasxd/MDB2019/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%208%20Plus%20-%202019-02-08%20at%2023.35.32.png)
-![Statistics Page](https://github.com/anitasxd/MDB2019/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%208%20Plus%20-%202019-02-08%20at%2023.35.23.png)
+![Start Page](https://github.com/anitasxd/mp4-FlightTracker/blob/master/Screenshots/home.png)
+![Game Page](https://github.com/anitasxd/mp4-FlightTracker/blob/master/Screenshots/flight.png)
+![Statistics Page](https://github.com/anitasxd/mp4-FlightTracker/blob/master/Screenshots/map.png)
+![Statistics Page](https://github.com/anitasxd/mp4-FlightTracker/blob/master/Screenshots/airport.png)
