@@ -32,22 +32,39 @@ extension FlightSearchViewController{
         label.textAlignment = .center
         view.addSubview(label)
         
-        button = UIButton(frame: CGRect(x: 50, y: 200, width: view.frame.width - 100, height: 50))
-        button.backgroundColor = .blue
-        button.setTitle("Get Flight", for: .normal)
-        button.addTarget(self, action: #selector(searchbuttonPress), for: .touchUpInside)
-        view.addSubview(button)
+        searchbutton = UIButton(frame: CGRect(x: 50, y: 200, width: view.frame.width - 100, height: 50))
+        searchbutton.backgroundColor = .blue
+        searchbutton.setTitle("Get Flight", for: .normal)
+        searchbutton.addTarget(self, action: #selector(searchbuttonPress), for: .touchUpInside)
+        view.addSubview(searchbutton)
     }
     
     @objc func searchbuttonPress(_ sender: Any) {
+        if (flightNumberTextfield!.text == "") {
+            inputError()
+            return
+        }
+        
         let inputDate = dateFormatter(flightDatePicker.date)
         LufthansaAPIClient.getAuthToken() {
             LufthansaAPIClient.getFlightInfo(flightNum: "\(self.flightNumberTextfield!.text!)", date: "\(inputDate)") { (flightRecord) in
+                if (flightRecord.originAirport == ""){
+                    self.inputError()
+                    return
+                }
                 self.label.text = flightRecord.timeStatus
                 self.inputFlight = flightRecord
                 self.performSegue(withIdentifier: "toFlightInfo", sender: self)
             }
         }
+    }
+    
+    func inputError(){
+        let alert = UIAlertController(title: "Error!", message: "Please check your inputs!", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
+        searchbutton.isUserInteractionEnabled = true
     }
     
     private func dateFormatter(_ date: Date) -> String {
@@ -62,15 +79,4 @@ extension FlightSearchViewController{
             destination.userFlight = inputFlight
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

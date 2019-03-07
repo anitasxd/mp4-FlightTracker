@@ -104,7 +104,6 @@
         <!--Airports-->
         <scene sceneID="jfW-Me-ngp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TUv-2H-A9U" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="VMA-66-7he" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Airports" image="airport" id="OSA-IR-MbD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J6n-U4-Ju9">
@@ -115,13 +114,14 @@
                         <segue destination="EBy-7i-IsE" kind="relationship" relationship="rootViewController" id="aW6-nb-oHH"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TUv-2H-A9U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-727" y="-678"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="1HT-EL-t2F">
             <objects>
-                <viewController id="X84-Rx-svf" customClass="FavoritesViewController" sceneMemberID="viewController">
+                <viewController id="X84-Rx-svf" customClass="FavoritesViewController" customModule="LufthansaMP4Skeleton" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zC3-xQ-4a9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,10 +129,13 @@
                         <viewLayoutGuide key="safeArea" id="yTE-4X-lvB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="favorite" id="4lh-JE-kH7"/>
+                    <connections>
+                        <segue destination="SLX-18-9Hk" kind="show" identifier="toFlightDetails" id="LtE-6d-tPD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9p-a0-IsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-257" y="190"/>
+            <point key="canvasLocation" x="836" y="-678"/>
         </scene>
     </scenes>
     <resources>
@@ -142,5 +145,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2qO-nf-A4k"/>
+        <segue reference="LtE-6d-tPD"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,7 @@ import UIKit
 class FlightSearchViewController: UIViewController {
 
     var label: UILabel!
-    var button: UIButton!
+    var searchbutton: UIButton!
     
     var flightNumberTextfield: UITextField!
     var flightDatePicker: UIDatePicker!

@@ -12,34 +12,28 @@ class FavoritesCellTableViewCell: UITableViewCell {
     
     var flightName: UILabel!
     var flightPath: UILabel!
-    var flightStatus: UILabel!
+    var flightTime: UILabel!
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = UIColor(red: 80 / 255, green: 101 / 255, blue: 161 / 255, alpha: 1)
         
-        flightName = UILabel(frame: CGRect(x: 40, y: 275, width: 300, height: 25))
-        flightName.font = UIFont(name: "Avenir", size: 24)
-        flightName.textColor = .white
+        flightName = UILabel(frame: CGRect(x: 40, y: 50, width: 300, height: 20))
+        flightName.font = UIFont(name: "Helvetica", size: 14)
         
-        flightPath = UILabel(frame: CGRect(x: 40, y: 275, width: 300, height: 25))
-        flightPath.font = UIFont(name: "Avenir", size: 24)
-        flightPath.textColor = .white
+        flightPath = UILabel(frame: CGRect(x: 40, y: flightName.frame.maxY + 10, width: 300, height: 25))
+        flightPath.font = UIFont(name: "Helvetica", size: 14)
         
-        flightStatus = UILabel(frame: CGRect(x: 40, y: 275, width: 300, height: 25))
-        flightStatus.font = UIFont(name: "Avenir", size: 24)
-        flightStatus.textColor = .white
+        flightTime = UILabel(frame: CGRect(x: 40, y: flightPath.frame.maxY + 10, width: 300, height: 25))
+        flightTime.font = UIFont(name: "Helvetica", size: 14)
 
         contentView.addSubview(flightName)
         contentView.addSubview(flightPath)
-        contentView.addSubview(flightStatus)
+        contentView.addSubview(flightTime)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

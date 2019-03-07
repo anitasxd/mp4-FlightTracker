@@ -27,16 +27,44 @@ extension AirportsViewController: MKMapViewDelegate {
         mapRegion.span.latitudeDelta = 50
         mapRegion.span.longitudeDelta = 50
         mapView.setRegion(mapRegion, animated: true)
-        
+       
+        LufthansaAPIClient.getAuthToken() {
         LufthansaAPIClient.getAllAirports(UIview: self, completion: ({airports in
                 for element in airports {
-                    let airport = MKPointAnnotation()
-                    airport.title = "\(element.airportName!), \(element.airportCode!)"
-                    airport.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees((element.airportLat! as NSString).integerValue), longitude: CLLocationDegrees((element.airportLong! as NSString).integerValue))
-                    self.mapView.addAnnotation(airport)
+                    let point = MKPointAnnotation()
+                    point.title = "\(element.airportName!), \(element.airportCode!)"
+                    point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees((element.airportLat! as NSString).integerValue), longitude: CLLocationDegrees((element.airportLong! as NSString).integerValue))
+                    self.mapView.addAnnotation(point)
                 }
                 self.view.addSubview(self.mapView)
             }))
+        }
         print("done populating")
     }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        self.selectedAirport = view.annotation as? MKPointAnnotation
+        print(selectedAirport)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("In MKMapViewDelegate")
+        let identifier = "marker"
+        let view: MKMarkerAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            print("Created a new view")
+            print(annotation.title)
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            
+        }
+        return view
+        
+    }
 }
+

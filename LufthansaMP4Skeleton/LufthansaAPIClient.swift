@@ -96,7 +96,7 @@ class LufthansaAPIClient {
     
     static func getAllAirports(UIview : UIViewController, completion: @escaping ([Airport]) -> ()){
         //Request URL and authentication parameters
-        let requestURL = "https://api.lufthansa.com/v1/references/airports/?limit=20&offset=0&LHoperated=0"
+        let requestURL = "https://api.lufthansa.com/v1/references/airports/?limit=100&offset=0&LHoperated=0"
         let parameters: HTTPHeaders = ["Authorization": "Bearer \(authToken!)", "Accept": "application/json"]
   
         Alamofire.request(requestURL, headers: parameters).responseJSON { response in
@@ -109,9 +109,13 @@ class LufthansaAPIClient {
             let json = JSON(response.result.value)
             //Create new flight model and populate data
             var airports : [Airport] = []
-            for i in 0...100 {
+            for i in 0...99 { // store all the stuff into array first so can shorten code
                 let airportCode = json["AirportResource"]["Airports"]["Airport"][i]["AirportCode"].stringValue
-                airports.append(Airport(data: json, code: airportCode))
+                let newAir = Airport(data: json, code: airportCode)
+                newAir.airportName = json["AirportResource"]["Airports"]["Airport"][i]["Names"]["Name"][0]["$"].stringValue
+                newAir.airportLat = json["AirportResource"]["Airports"]["Airport"][i]["Position"]["Coordinate"]["Latitude"].stringValue
+                newAir.airportLong = json["AirportResource"]["Airports"]["Airport"][i]["Position"]["Coordinate"]["Longitude"].stringValue
+                airports.append(newAir)
             }
             completion(airports)
         }

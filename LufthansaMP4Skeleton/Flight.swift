@@ -11,6 +11,7 @@ import SwiftyJSON
 class Flight {
 
     //times of flight
+    var json : JSON!
     var flightNum: String!
     var flightTime: String!
     var timeStatus: String!
@@ -29,6 +30,7 @@ class Flight {
     init(data: JSON, flightNum: String, date: String) {
         self.flightNum = flightNum
         self.flightTime = date
+        self.json = data
         
         //flightTimes setup
         timeStatus = data["FlightStatusResource"]["Flights"]["Flight"]["FlightStatus"]["Definition"].stringValue

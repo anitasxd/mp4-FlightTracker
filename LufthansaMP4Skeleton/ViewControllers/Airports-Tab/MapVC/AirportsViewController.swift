@@ -12,7 +12,7 @@ import MapKit
 class AirportsViewController: UIViewController {
     var allAirports: [Airport]!
     var mapView : MKMapView!
-    var selectedAirport : MKPointAnnotation!
+    var selectedAirport : MKPointAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()

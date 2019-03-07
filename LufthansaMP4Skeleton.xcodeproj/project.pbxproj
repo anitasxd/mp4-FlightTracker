@@ -26,6 +26,7 @@
 		C065E8FA222FB4FA007994A3 /* Favorites-TableSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065E8F9222FB4FA007994A3 /* Favorites-TableSetup.swift */; };
 		C065E8FC222FB590007994A3 /* FavoritesCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065E8FB222FB590007994A3 /* FavoritesCellTableViewCell.swift */; };
 		C065E8FE222FBFD0007994A3 /* Favorites-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065E8FD222FBFD0007994A3 /* Favorites-UISetup.swift */; };
+		C094F9B6223095080000BA54 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = C094F9B5223095070000BA54 /* Favorites.swift */; };
 		D86AF6286DAE2A43957DE55D /* Pods_LufthansaMP4Skeleton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AFFB8948EBF9ED8E7EB31F /* Pods_LufthansaMP4Skeleton.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		C065E8F9222FB4FA007994A3 /* Favorites-TableSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites-TableSetup.swift"; sourceTree = "<group>"; };
 		C065E8FB222FB590007994A3 /* FavoritesCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCellTableViewCell.swift; sourceTree = "<group>"; };
 		C065E8FD222FBFD0007994A3 /* Favorites-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites-UISetup.swift"; sourceTree = "<group>"; };
+		C094F9B5223095070000BA54 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		C30473CE715F38F9377BE1F1 /* Pods-LufthansaMP4Skeleton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LufthansaMP4Skeleton.release.xcconfig"; path = "Pods/Target Support Files/Pods-LufthansaMP4Skeleton/Pods-LufthansaMP4Skeleton.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				9F4CF6C6222A7C4300B8E242 /* Flight.swift */,
 				C065E8EF222F6CAD007994A3 /* Airport.swift */,
 				C065E8F1222F9976007994A3 /* Aircraft.swift */,
+				C094F9B5223095070000BA54 /* Favorites.swift */,
 				9F4CF6C4222A7BF000B8E242 /* LufthansaAPIClient.swift */,
 				9F4CF6B6222A7BB700B8E242 /* Main.storyboard */,
 				9F4CF6B9222A7BB800B8E242 /* Assets.xcassets */,
@@ -338,6 +341,7 @@
 				C065E8F4222F9D82007994A3 /* AirportsViewController.swift in Sources */,
 				C065E8F2222F9976007994A3 /* Aircraft.swift in Sources */,
 				C065E8F6222FA033007994A3 /* Airports-Map.swift in Sources */,
+				C094F9B6223095080000BA54 /* Favorites.swift in Sources */,
 				9F4CF6B5222A7BB700B8E242 /* FlightSearchViewController.swift in Sources */,
 				9F4CF6B3222A7BB700B8E242 /* AppDelegate.swift in Sources */,
 			);

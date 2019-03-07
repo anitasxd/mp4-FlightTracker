@@ -11,11 +11,17 @@ import UIKit
 
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "flightCell", for: indexPath as IndexPath) as! FavoritesCellTableViewCell
-        let flight = favoriteFlights[indexPath.row]
-        cell.flightName.text = "Flight: \(flight.flightNum!)"
-        cell.flightPath.text = "From ✈ \(flight.originAirport!) → To ✈ \(flight.destinationAirport!)"
-        cell.flightStatus.text = "Status: \n \(flight.timeStatus!)"
+        let cell = favoriteTableView.dequeueReusableCell(withIdentifier: "flightCell", for: indexPath as IndexPath) as! FavoritesCellTableViewCell
+        if (Favorites.favoritesList.count == 0){
+            cell.flightName.text = "You have not selected a favorite flight yet"
+            cell.flightPath.text = ""
+            cell.flightTime.text = "Select through Flights Tab!"
+        } else {
+            let flight = Favorites.favoritesList[indexPath.row]
+            cell.flightName.text = "Flight: \(flight.flightNum!)"
+            cell.flightPath.text = "From ✈ \(flight.originAirport!) → To ✈ \(flight.destinationAirport!)"
+            cell.flightTime.text = "Status: \(flight.timeStatus!)"
+        }
         
         // Initialize Cell
         cell.awakeFromNib()
@@ -23,15 +29,37 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoriteFlights.count
+        if (Favorites.favoritesList.count == 0) {
+            return 1
+        }
+        return Favorites.favoritesList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 3 + 50
+        return tableView.frame.height / 5
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //selectedEvent = eventsList[indexPath.row]
-        tableView.deselectRow(at: indexPath, animated: true)
+        if (Favorites.favoritesList.count == 0){
+            inputError()
+            return
+        }
+        selectedFlight = Favorites.favoritesList[indexPath.row]
+        performSegue(withIdentifier: "toFlightDetails", sender: (Any).self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? FlightInfoViewController {
+            destination.userFlight = selectedFlight
+        }
+    }
+    
+    func inputError(){
+        let alert = UIAlertController(title: "Error!", message: "You do not have any favorites!", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
+        //Favorites.favoritesList[IndexPath.row].isUserInteractionEnabled = true
+    }
+    
 }
