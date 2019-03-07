@@ -14,7 +14,18 @@ extension FlightSearchViewController{
     }
     
     func flightSearchUISetup(){
-        view.backgroundColor = UIColor(red: 80 / 255, green: 101 / 255, blue: 161 / 255, alpha: 1)
+        welcomeImage  =  UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        welcomeImage.image = UIImage(named: "welcome")
+        view.addSubview(welcomeImage)
+        
+        flightLabel = UILabel(frame: CGRect(x: 70, y: view.frame.height/2, width: 60, height: 35))
+        flightLabel.text = "Flight: "
+        flightLabel.textAlignment = .center
+        flightLabel.font = UIFont(name: "Helvetica", size: 20)
+        flightLabel.textColor = .white
+        view.addSubview(flightLabel)
+        
+        
         flightNumberTextfield = UITextField(frame: CGRect(x: view.frame.width/3, y: view.frame.height/2, width: view.frame.width/2, height: 35))
         flightNumberTextfield.placeholder = "Flight Number"
         flightNumberTextfield.textAlignment = .center
@@ -27,14 +38,11 @@ extension FlightSearchViewController{
         flightDatePicker.setValue(UIColor.white, forKeyPath: "textColor")
         view.addSubview(flightDatePicker)
         
-        label = UILabel(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: 50))
-        label.text = "This will be flight status"
-        label.textAlignment = .center
-        view.addSubview(label)
-        
-        searchbutton = UIButton(frame: CGRect(x: 50, y: 200, width: view.frame.width - 100, height: 50))
-        searchbutton.backgroundColor = .blue
+        searchbutton = UIButton(frame: CGRect(x: view.frame.width/3.5, y: flightDatePicker.frame.maxY + 50, width: view.frame.width/2, height: 30))
         searchbutton.setTitle("Get Flight", for: .normal)
+        searchbutton.backgroundColor = UIColor(red:0.57, green:0.70, blue:0.95, alpha:1.0)
+        searchbutton.layer.cornerRadius = 12
+        searchbutton.setTitleColor(.white, for: .normal)
         searchbutton.addTarget(self, action: #selector(searchbuttonPress), for: .touchUpInside)
         view.addSubview(searchbutton)
     }
@@ -52,7 +60,6 @@ extension FlightSearchViewController{
                     self.inputError()
                     return
                 }
-                self.label.text = flightRecord.timeStatus
                 self.inputFlight = flightRecord
                 self.performSegue(withIdentifier: "toFlightInfo", sender: self)
             }

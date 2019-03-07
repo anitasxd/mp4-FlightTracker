@@ -26,11 +26,25 @@ extension FlightInfoViewController {
         flightName.textAlignment = .center
         view.addSubview(flightName)
         
-        flightPath = UILabel(frame: CGRect(x: 0, y: flightName.frame.maxY + 5, width: view.frame.width, height: 50))
-        flightPath.text = "✈ \(userFlight.originAirport!) → ✈ \(userFlight.destinationAirport!)"
+        originButton = UIButton(frame: CGRect(x: 35, y: flightName.frame.maxY + 5, width: 150, height: 50))
+        originButton.setTitle("✈ \(userFlight.originAirport!)", for: .normal)
+        originButton.setTitleColor(.white, for: .normal)
+        originButton.backgroundColor = UIColor(hue: 0.60, saturation: 0.61, brightness: 0.96, alpha: 1.0)
+        originButton.addTarget(self, action: #selector(originPressed), for: .touchUpInside)
+        view.addSubview(originButton)
+        
+        flightPath = UILabel(frame: CGRect(x: originButton.frame.maxX, y: flightName.frame.maxY + 5, width: 40, height: 50))
+        flightPath.text = "→"
         flightPath.font = UIFont(name: "Helvetica", size: 18)
         flightPath.textAlignment = .center
         view.addSubview(flightPath)
+        
+        destinationButton = UIButton(frame: CGRect(x: flightPath.frame.maxX, y: flightName.frame.maxY + 5, width: 150, height: 50))
+        destinationButton.setTitle("✈ \(userFlight.destinationAirport!)", for: .normal)
+        destinationButton.setTitleColor(.white, for: .normal)
+        destinationButton.backgroundColor = UIColor(hue: 0.60, saturation: 0.61, brightness: 0.96, alpha: 1.0)
+        destinationButton.addTarget(self, action: #selector(destinationPressed), for: .touchUpInside)
+        view.addSubview(destinationButton)
         
         flightStatus = UILabel(frame: CGRect(x: 0, y: flightPath.frame.maxY + 10, width: view.frame.width/3, height: 50))
         flightStatus.numberOfLines = 0;
@@ -104,10 +118,28 @@ extension FlightInfoViewController {
         
     }
     
+    @objc func originPressed(_ sender: Any){
+        airportCode = userFlight.originAirport!
+        self.performSegue(withIdentifier: "toAirportsInfo", sender: self)
+        
+    }
+    
+    @objc func destinationPressed(_ sender: Any){
+        airportCode = userFlight.destinationAirport!
+        self.performSegue(withIdentifier: "toAirportsInfo", sender: self)
+    }
+    
+    
     @objc func favoritebuttonPress(_ sender: Any) {
         Favorites.favoritesList.append(userFlight)
         print(Favorites.favoritesList)
         self.performSegue(withIdentifier: "toFavorites", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? AirportInfoViewController {
+            destination.code = airportCode
+        }
     }
  
 

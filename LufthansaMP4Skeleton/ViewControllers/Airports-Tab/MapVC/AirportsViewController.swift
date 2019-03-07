@@ -13,6 +13,7 @@ class AirportsViewController: UIViewController {
     var allAirports: [Airport]!
     var mapView : MKMapView!
     var selectedAirport : MKPointAnnotation?
+    var airportCode : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()

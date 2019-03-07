@@ -24,13 +24,18 @@ class FlightInfoViewController: UIViewController {
     var boardingGate: UILabel!
     var aircraftType: UILabel!
     
+    var originButton: UIButton!
+    var destinationButton: UIButton!
+    
     var aircraftImage: UIImageView!
     
+    var airportCode : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSetup()
         uiSetup()
+        navigationController?.navigationBar.isHidden = false
         // Do any additional setup after loading the view.
     }
     

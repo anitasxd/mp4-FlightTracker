@@ -42,9 +42,11 @@ extension AirportsViewController: MKMapViewDelegate {
         print("done populating")
     }
     
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         self.selectedAirport = view.annotation as? MKPointAnnotation
-        print(selectedAirport)
+        self.airportCode = selectedAirport?.title
+        print(airportCode)
+        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -60,11 +62,23 @@ extension AirportsViewController: MKMapViewDelegate {
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             
+            let btn = UIButton(type: .detailDisclosure)
+            view.rightCalloutAccessoryView = btn
+            btn.addTarget(self, action: #selector(airportInfoButton), for: .touchUpInside)
         }
         return view
         
+    }
+    
+    @objc func airportInfoButton(_ sender: Any) {
+        performSegue(withIdentifier: "toAirportDetail", sender: (Any).self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? AirportInfoViewController {
+            destination.airportCode = airportCode
+        }
     }
 }
 

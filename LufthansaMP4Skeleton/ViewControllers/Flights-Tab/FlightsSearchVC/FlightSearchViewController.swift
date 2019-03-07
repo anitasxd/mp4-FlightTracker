@@ -10,17 +10,16 @@ import UIKit
 
 class FlightSearchViewController: UIViewController {
 
-    var label: UILabel!
+    var welcomeImage : UIImageView!
     var searchbutton: UIButton!
     
     var flightNumberTextfield: UITextField!
     var flightDatePicker: UIDatePicker!
-    
     var flightDate: String!
+    var flightLabel: UILabel!
     
     var inputFlight: Flight!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         flightSearchUISetup()
